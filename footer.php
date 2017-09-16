@@ -27,9 +27,9 @@
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="close-icon"></i></button>
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<h4>Search</h4>
+			<h4><?php _e('Search', 'dia') ?></h4>
 			<form method="get" role="search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<input text="<?php echo get_search_query(); ?>" name="s" id="s" class="form-control" type="text" placeholder="What are you looking for?">
+				<input text="<?php echo get_search_query(); ?>" name="s" id="s" class="form-control" type="text" placeholder="<?php _e('What are you looking for?', 'dia') ?>">
 			</form>
 		</div>
 	</div>
@@ -40,7 +40,7 @@
 	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="close-icon"></i></button>
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-			<h5 class="text-muted">Menu</h5>
+			<h5 class="text-muted"><?php _e('Menu', 'dia') ?></h5>
 			<?php wp_nav_menu( 
 			array (
 				'menu' => 'top-menu',
@@ -55,5 +55,6 @@
 </div>
 
 <?php wp_footer(); ?>
+
 </body>
-</html
+</html>
