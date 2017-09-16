@@ -6,7 +6,7 @@
 				<div class="post">
 					<?php the_post_thumbnail(array(1000,300), ['class' => 'img-responsive img-rounded thumbnail-img']) ;?>
 					<h2 class="post-title"><?php the_title(); ?></h2>
-					<p class="text-muted">Published <?php the_time('F jS, Y'); ?></p>
+					<p class="text-muted"><?php _e('Published', 'dia') ?> <?php the_time(); ?></p>
 					<div class="post-content">
 						<?php the_content(); ?>
 					</div>
