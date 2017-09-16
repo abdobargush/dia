@@ -1,2 +1,2 @@
-# DIA--wordpress-theme
+# DIA Wordpress Theme
 Free personal portfolio wordpress theme.
