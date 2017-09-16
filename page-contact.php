@@ -12,10 +12,10 @@ function generate_response($type, $message){
 }
 
 // response messages
-$missing_content = "Please supply all information.";
-$email_invalid   = "Email Address Invalid.";
-$message_unsent  = "Message was not sent. Try Again.";
-$message_sent    = "Thanks! Your message has been sent.";
+$missing_content = __("Please supply all information.", 'dia');
+$email_invalid   = __("Email Address Invalid.", 'dia');
+$message_unsent  = __("Message was not sent. Try Again.", 'dia');
+$message_sent    = __("Thanks! Your message has been sent.", 'dia');
 
 // Sender posted vars
 $name = $_POST['name'];
@@ -24,9 +24,9 @@ $message = $_POST['message'];
 
 // php Mailer Vars
 $to = get_option('admin_email');
-$subject == 'You got a message via '.get_bloginfo('name');
-$headers = 'From: '. $email . "\r\n" .
-    	   'Reply-To: ' . $email . "\r\n";
+$subject == __('You got a message via ', 'dia').get_bloginfo('name');
+$headers = __('From: ', 'dia'). $email . "\r\n" .
+    	   __('Reply-To: ', 'dia') . $email . "\r\n";
 
 //validate email
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
@@ -63,24 +63,24 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 					<form method="post" class="form-horizontal">
 						<div class="form-group">
 							<div class="col-sm-6">
-								<label for="name" class="control-label">Name</label>
+								<label for="name" class="control-label"><?php _e('Name' , 'dia') ?></label>
 								<input type="text" id="name" name="name" class="form-control">
 							</div>
 							<div class="col-sm-6">
-								<label for="email" class="control-label">E-mail</label>
+								<label for="email" class="control-label"><?php _e('E-mail', 'dia') ?></label>
 								<input type="email" id="email" name="email" class="form-control">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<label for="message" class="control-label">Message</label>
+								<label for="message" class="control-label"><?php _e('Message') ?></label>
 								<textarea id="message" name="message" class="form-control" rows="8"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12 text-center">
 								<input type="hidden" name="submitted" value="1">
-								<button type="submit" class="btn btn-primary">Send Message</button>
+								<button type="submit" class="btn btn-primary"><?php __e('Send Message', 'dia') ?></button>
 							</div>
 						</div>
 					</form>
