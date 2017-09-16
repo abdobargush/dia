@@ -42,7 +42,7 @@
 		} ?>
 		<?php else : ?>
 			<div class="col-md-12">
-				<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+				<p><?php _e('Sorry, no posts matched your criteria.', 'dia'); ?></p>
 			</div>
 		<?php endif; ?>
 	</div>	
