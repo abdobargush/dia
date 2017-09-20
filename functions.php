@@ -38,9 +38,13 @@ function dia_setup() {
 }
 add_action( 'after_setup_theme', 'dia_setup' );
 
-// Adding scripts and stylesheets
+// Add scripts and stylesheets
 function dia_scripts() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
+	// Add bootstrap-rtl.css to support rtl languages
+	if ( is_rtl() ) {
+		wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap-rtl.min.css', array(), '3.3.7' );
+	}
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '3.3.7', true );
 }
@@ -48,8 +52,18 @@ add_action( 'wp_enqueue_scripts', 'dia_scripts' );
 
 // Adding Google Fonts
 function dia_google_fonts() {
-	wp_register_style('fonts', 'https://fonts.googleapis.com/css?family=Arvo:400,700|Raleway:300,400,700', array() , null);
-	wp_enqueue_style( 'fonts');
+	// Add fonts specified for Arabic
+	if ( (get_locale() == 'ar') ) {
+		wp_register_style('droidArabicKufi', '//fonts.googleapis.com/earlyaccess/droidarabickufi.css', array() , null);
+		wp_enqueue_style( 'droidArabicKufi');
+		wp_register_style('droidArabicNaskh', '//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css', array() , null);
+		wp_enqueue_style( 'droidArabicNaskh');
+	}
+	// Default fonts for English and languages that use latin characters
+	else {
+		wp_register_style('defaultFonts', 'https://fonts.googleapis.com/css?family=Arvo:400,700|Raleway:300,400,700', array() , null);
+		wp_enqueue_style( 'defaultFonts');
+	}
 }
 add_action('wp_print_styles', 'dia_google_fonts');
 
@@ -88,7 +102,7 @@ function dia_comments($comment, $args, $depth) {
 		   </div>
 		   <div class="media-body">
 			   <h4 class="media-hading"><?php echo ( get_comment_author($comment) ); ?></h4>
-			   <p class="small text-muted"><?php printf(__('%1$s'), get_comment_date() . ' at ' . get_comment_time()) ?></p>
+			   <p class="small text-muted"><?php printf(__('%1$s'), get_comment_date() . ' @ ' . get_comment_time()) ?></p>
 			   <p><?php echo (get_comment_text()); ?></p>
 			   <p><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => '<svg id="i-reply" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
 				<path d="M10 6 L3 14 10 22 M3 14 L18 14 C26 14 30 18 30 26" />
