@@ -1,3 +1,4 @@
+<?php // Template Name: Contact Page ?>
 <?php
 // Custom php for Mailing thing
 //response generation function
@@ -80,7 +81,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 						<div class="form-group">
 							<div class="col-sm-12 text-center">
 								<input type="hidden" name="submitted" value="1">
-								<button type="submit" class="btn btn-primary"><?php __e('Send Message', 'dia') ?></button>
+								<button type="submit" class="btn btn-primary"><?php _e('Send Message', 'dia') ?></button>
 							</div>
 						</div>
 					</form>
