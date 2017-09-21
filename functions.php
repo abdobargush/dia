@@ -34,6 +34,11 @@ function dia_setup() {
 		'caption',
 	) );
 	
+	// This theme uses wp_nav_menu() in two locations.
+	register_nav_menus( array(
+		'top-menu' => __( 'Top Menu', 'dia'),
+		'social-menu' => __( 'Social Links Menu', 'dia') )
+	);
 	
 }
 add_action( 'after_setup_theme', 'dia_setup' );
@@ -50,7 +55,7 @@ function dia_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'dia_scripts' );
 
-// Adding Google Fonts
+// Add Google Fonts
 function dia_google_fonts() {
 	// Add fonts specified for Arabic
 	if ( (get_locale() == 'ar') ) {
@@ -67,17 +72,6 @@ function dia_google_fonts() {
 }
 add_action('wp_print_styles', 'dia_google_fonts');
 
-// Menus
-function dia_custom_menus() {
-  register_nav_menus(
-    array(
-      'top-menu' => __( 'Top Menu' ),
-      'social-menu' => __( 'Social Links Menu' )
-    )
-  );
-}
-add_action( 'init', 'dia_custom_menus' );
-
 // Sidebar Widgets
 function sidebart_widgets() {
 
@@ -92,6 +86,88 @@ function sidebart_widgets() {
 
 }
 add_action( 'widgets_init', 'sidebart_widgets' );
+
+/* 
+ * DIA' Tags
+ * Is a custom widget to display tags in theme's style.
+ */
+function dia_tags_load_widget() {
+	register_widget('dia_tags_widget');
+}
+add_action( 'widgets_init', 'dia_tags_load_widget' );
+
+class dia_tags_widget extends WP_widget {
+	function __construct() {
+		parent::__construct(
+			'dia_tags_widget', // Widget Base ID
+			__('DIA\' Tags', 'dia'), // Widget Name
+			array('description' => __('A list of your most used tags.', 'dia') ) // Widget Description
+		);
+	}
+	
+	/*
+	 * Widget Backend
+	 */
+	public function form( $instance ) {
+		if ( isset( $instance[ 'title' ] ) ) {
+			$title = $instance[ 'title' ];
+		}
+		else {
+			$title = '';
+		}
+		if ( isset( $instance[ 'max_no' ] ) ) {
+			$max_no = $instance[ 'max_no' ];
+		}
+		else {
+			$max_no = '5';
+		}
+		
+		// Widget Admin Form
+		?>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'dia'); ?></label>
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'max_no' ); ?>"><?php _e( 'Maximum Number:', 'dia'); ?></label>
+				<input id="<?php echo $this->get_field_id( 'max_no' ); ?>" name="<?php echo $this->get_field_name( 'max_no' ); ?>" type="text" value="<?php echo esc_attr( $max_no ); ?>" />
+			</p>
+		<?php
+	}
+	
+	/*
+	 * Widget Frontend
+	 */
+	public function widget( $args, $instance ) {
+		$title = apply_filters( 'widget_title', $instance['title'] );
+		// Before Widget
+		echo $args['before_widget'];
+		if ( ! empty( $title ) ) echo $args['before_title'] . $title . $args['after_title'];
+		$tags = get_tags(
+			array (
+				'number' => $instance['max_no'],
+				'order' => 'count',
+			)
+		);
+		$html = '<ul class="tags tags-list">';
+		foreach ( $tags as $tag ) {
+			$tag_link = get_tag_link( $tag->term_id );
+			$html .= "<li><a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>{$tag->name}</a></li>";
+		}
+		$html .= '</ul>';
+		echo $html;
+		// After Widget
+		echo $args['after_widget'];
+	}
+	
+	// Update instances
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['max_no'] = ( ! empty( $new_instance['max_no'] ) ) ? strip_tags( $new_instance['max_no'] ) : '';
+		return $instance;
+	}
+}
 
 // Custom Comments template
 function dia_comments($comment, $args, $depth) {  
