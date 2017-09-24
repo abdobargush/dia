@@ -182,7 +182,7 @@ function dia_comments($comment, $args, $depth) {
 			   <p><?php echo (get_comment_text()); ?></p>
 			   <p><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => '<svg id="i-reply" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
 				<path d="M10 6 L3 14 10 22 M3 14 L18 14 C26 14 30 18 30 26" />
-		    	</svg> Reply'))) ?></p>
+		    	</svg>'. __('Reply','dia') )) ?></p>
 		   </div>
 		   
    <?php 
@@ -231,8 +231,8 @@ function create_portfolio_post() {
 	register_post_type( 'portfolio',
 			array(
 			'labels' => array(
-					'name' => __( 'Portfolio' ),
-					'singular_name' => __( 'Portfolio Item' ),
+					'name' => __( 'Portfolio', 'dia'),
+					'singular_name' => __( 'Portfolio Project', 'dia'),
 			),
 			'public' => true,
 			'has_archive' => true,
@@ -275,7 +275,7 @@ function project_link_box_content() {
 	<input type="hidden" name="project_link_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
 
 	<p>
-		<label for="project_link_fields[url]">Input Text</label>
+		<label for="project_link_fields[url]"><?php _e('Project Link', 'dia') ?></label>
 		<input type="url" name="project_link" id="project_link" class="regular-text" value="<?php echo get_post_meta( $post->ID, 'project_link', true ); ?>">
 	</p>
 
