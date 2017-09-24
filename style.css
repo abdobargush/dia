@@ -1,8 +1,9 @@
 /*
 Theme Name: DIA'
+Text Domain: dia
 Author: Abdulaziz Bargush
 Author URI: http://bargush.me
-Description: Personal and portfolio wordpress theme.
+Description: Personal portfolio wordpress theme.
 Version: 1.0
 Tags: bootstrap, personal, portfolio, free, rtl-language-support, translation-ready
 */
@@ -275,6 +276,13 @@ ul.page-numbers li a.prev, ul.page-numbers li a.next {
 	display: block;
 	max-width: 100%;
 	height: auto;
+}
+.sub-info {
+	margin-bottom: 10px;
+}
+.sub-info a {
+	color: inherit;
+	border-bottom: 0;
 }
 
 /*-- Commnts --*/
