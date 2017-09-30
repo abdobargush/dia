@@ -2,14 +2,14 @@
 <div id="post-<?php the_ID(); ?>" class="blog-post">
 	<a href="<?php the_permalink(); ?>">
 		<?php if ( has_post_thumbnail() ) {
-			echo ('<div class="post-head">');
+			echo ('<div class="post-thumb">');
 			the_post_thumbnail(array(1000,300), ['class' => 'img-responsive img-rounded']);
 			echo ('</div>');
 		} ?>
-		<h3><?php the_title(); ?></h3>
+		<h3 class="post-heading"><?php the_title(); ?></h3>
 	</a>
-	<div class="row">
-		<div class="col-xs-6"><p class="text-muted small"><?php _e('Puplished', 'dia') ?> <?php the_time(); ?></p></div>
+	<div class="row sub-info">
+		<div class="col-xs-6"><p class="text-muted small"><?php _e('Puplished', 'dia') ?> <?php echo get_the_date(); ?></p></div>
 		<div class="col-xs-6 text-right">
 			<p class="text-muted small"><a href="<?php comments_link(); ?>" class="comments-link"><?php comments_number( __('no responses', 'dia'), __('one response', 'dia'), __('% responses', 'dia') ); ?></a></p>
 		</div>
