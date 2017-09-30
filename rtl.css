@@ -1,3 +1,95 @@
 /*
 Theme Name: DIA'
 */
+
+body {
+	font-family: 'Noto Naskh Arabic UI', 'Segoe UI', Tahoma, sans-serif;
+	font-size: 18px;
+	line-height: 1.8;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif;
+	line-height: 1.5;
+}
+.super-heading {
+	margin-bottom: 0;
+}
+.sub-heading {
+	font-family: 'Noto Naskh Arabic UI', 'Segoe UI',Tahoma, sans-serif;
+	margin-top: 0;
+}
+
+/*-- Navbar --*/
+.navbar {
+	font-family: 'Noto Kufi Arabic', Tahoma, sans-serif;
+}
+.navbar-header {
+	float: right;
+}
+.navbar-right {
+	float: left!important;
+}
+.navbar-nav>li {
+	float: right;
+	font-size: 16px;
+}
+
+/*-- blog --*/
+.post-heading {
+	margin-bottom: 5px;
+}
+.sub-info .text-right {
+	text-align: left;
+}
+.sub-info .text-left {
+	text-align: right;
+}
+.tags a {
+	font-family: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif;
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+/*-- Tags list --*/
+ul.tags-list {
+	padding-right: 0;
+}
+ul.tags-list li a {
+	font-family: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif;
+}
+.tags a:before {
+	font-family: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/*-- Footer --*/
+footer {
+	font-size: 16px;
+}
+footer .social-links {
+	float: left;
+}
+footer ul li {
+	float: right;
+}
+footer ul li:first-child {
+	margin-left: 10px;
+	margin-right: 0;
+}
+footer ul li:last-child {
+	margin-right: 10px;
+	margin-left: 0;
+}
+
+/*-- Modal --*/
+.close-icon:after {
+	left: 0;
+	right: 15px;
+}
+
+/* Menu Modal */
+.modal ul.menu-list {
+	padding-right: 0;
+}
+.modal ul.menu-list li a {
+	font-family: 'Noto Kufi Arabic', 'Segoe UI', Tahoma, sans-serif;
+}
