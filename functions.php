@@ -6,7 +6,7 @@ function dia_setup() {
      * If you're building a theme based on DIA', use a find and replace
      * to change 'twentyseventeen' to the name of your theme in all the template files.
      */
-    load_theme_textdomain( 'dia' );
+    load_theme_textdomain( 'dia',  get_template_directory() . '/languages' );
 	
 	/*
 	 * Let WordPress manage the document title.
@@ -48,7 +48,7 @@ function dia_scripts() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
 	// Add bootstrap-rtl.css to support rtl languages
 	if ( is_rtl() ) {
-		wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap-rtl.min.css', array(), '3.3.7' );
+		wp_enqueue_style( 'bootstrap-rtl', get_template_directory_uri() . '/css/bootstrap-rtl.min.css', array(), '3.3.7' );
 	}
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '3.3.7', true );
@@ -59,10 +59,10 @@ add_action( 'wp_enqueue_scripts', 'dia_scripts' );
 function dia_google_fonts() {
 	// Add fonts specified for Arabic
 	if ( (get_locale() == 'ar') ) {
-		wp_register_style('droidArabicKufi', '//fonts.googleapis.com/earlyaccess/droidarabickufi.css', array() , null);
-		wp_enqueue_style( 'droidArabicKufi');
-		wp_register_style('droidArabicNaskh', '//fonts.googleapis.com/earlyaccess/droidarabicnaskh.css', array() , null);
-		wp_enqueue_style( 'droidArabicNaskh');
+		wp_register_style('notoKufiArabic', '//fonts.googleapis.com/earlyaccess/notokufiarabic.css', array() , null);
+		wp_enqueue_style( 'notoKufiArabic');
+		wp_register_style('notoNaskhArabicUI', '//fonts.googleapis.com/earlyaccess/notonaskharabicui.css', array() , null);
+		wp_enqueue_style( 'notoNaskhArabicUI');
 	}
 	// Default fonts for English and languages that use latin characters
 	else {
@@ -129,8 +129,8 @@ class dia_tags_widget extends WP_widget {
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'max_no' ); ?>"><?php _e( 'Maximum Number:', 'dia'); ?></label>
-				<input id="<?php echo $this->get_field_id( 'max_no' ); ?>" name="<?php echo $this->get_field_name( 'max_no' ); ?>" type="text" value="<?php echo esc_attr( $max_no ); ?>" />
+				<label for="<?php echo $this->get_field_id( 'max_no' ); ?>"><?php _e( 'Tags Number:', 'dia'); ?></label>
+				<input id="<?php echo $this->get_field_id( 'max_no' ); ?>" name="<?php echo $this->get_field_name( 'max_no' ); ?>" type="text" value="<?php echo esc_attr( $max_no ); ?>" class="tiny-text" />
 			</p>
 		<?php
 	}
@@ -177,12 +177,12 @@ function dia_comments($comment, $args, $depth) {
 			   <?php echo get_avatar( $comment, 64 ); ?>
 		   </div>
 		   <div class="media-body">
-			   <h4 class="media-hading"><?php echo ( get_comment_author($comment) ); ?></h4>
-			   <p class="small text-muted"><?php printf(__('%1$s'), get_comment_date() . ' @ ' . get_comment_time()) ?></p>
+			   <h4 class="media-heading"><?php echo ( get_comment_author($comment) ); ?></h4>
+			   <p class="small text-muted"><?php printf('%1$s', get_comment_date() . ' @ ' . get_comment_time()) ?></p>
 			   <p><?php echo (get_comment_text()); ?></p>
 			   <p><?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => '<svg id="i-reply" viewBox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
 				<path d="M10 6 L3 14 10 22 M3 14 L18 14 C26 14 30 18 30 26" />
-		    	</svg>'. __('Reply','dia') )) ?></p>
+		    	</svg> '. __('Reply', 'dia') ))) ?></p>
 		   </div>
 		   
    <?php 
@@ -197,13 +197,13 @@ add_action('wp_print_scripts', 'theme_queue_js');
 
 // Theme options
 function theme_options_add_menu() {
-  add_menu_page( 'DIA\' Theme Options', 'Theme Options', 'manage_options', 'theme-options', 'theme_options_page', null, 99 );
+  add_menu_page( __('DIA\' Theme Options', 'dia'), __('Theme Options', 'dia') , 'manage_options', 'theme-options', 'theme_options_page', null, 99 );
 }
 add_action( 'admin_menu', 'theme_options_add_menu' );
 
 function theme_options_page() { ?>
   <div class="wrap">
-    <h1>DIA' Theme Options</h1>
+    <h1><?php _e('DIA\' Theme Options', 'dia') ?></h1>
     <form method="post" action="options.php">
        <?php
            settings_fields( 'section' );
@@ -215,12 +215,12 @@ function theme_options_page() { ?>
 <?php }
 
 function setting_footer_text() { ?>
-   <input type="text" name="footer_text" id="footer_text" value="<?php echo str_replace('"','\'',get_option( 'footer_text' )); ?>" />
+   <input type="text" name="footer_text" id="footer_text" class="large-text" value="<?php echo str_replace('"','\'',get_option( 'footer_text' )); ?>" />
 <?php }
 
 function theme_options_page_setup() {
-  add_settings_section( 'section', 'Footer', null, 'theme-options' );
-  add_settings_field( 'footer_text', 'Footer Text', 'setting_footer_text', 'theme-options', 'section' );
+  add_settings_section( 'section', __('Footer', 'dia'), null, 'theme-options' );
+  add_settings_field( 'footer_text', __('Footer Text', 'dia'), 'setting_footer_text', 'theme-options', 'section' );
 
   register_setting('section', 'footer_text');
 }
@@ -237,7 +237,7 @@ function create_portfolio_post() {
 			'public' => true,
 			'has_archive' => true,
 			'rewrite' => ['slug' => 'portfolio'],
-			'menu_icon' => __('dashicons-format-gallery'),
+			'menu_icon' => 'dashicons-format-gallery',
 			'supports' => array(
 					'title',
 					'thumbnail',
@@ -260,7 +260,7 @@ function portflio_archive_get_posts( $query )
 function project_link_metabox() {
 	add_meta_box(
 		'project_link_box',
-		'Project Link',
+		__('Project Link', 'dia'),
 		'project_link_box_content',
 		'portfolio',
 		'normal',
