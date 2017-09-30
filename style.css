@@ -18,6 +18,7 @@ body {
 	margin-bottom: 80px;
 	font-size: 16px;
 	color: #111;
+	line-height: 1.6;
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Arvo', serif;
@@ -35,6 +36,10 @@ a:hover, a:focus {
 }
 button:hover, button:focus {
 	outline: none;
+}
+blockquote {
+	background-color: #f9f9f9;
+	border-color: #111;
 }
 .well {
 	background-color: #fff;
@@ -213,7 +218,7 @@ ul.tags-list li a:hover {
 .blog-post {
 	margin-bottom: 50px;
 }
-.blog-post .post-head {
+.blog-post .post-thumb {
 	position: relative;
 	overflow: hidden;
 	border-radius: 6px;
@@ -223,6 +228,9 @@ ul.tags-list li a:hover {
 }
 .blog-post a:hover img {
 	transform: scale(1.09);
+}
+.blog-post .sub-info {
+	margin-bottom: 0;
 }
 .blog-post .comments-link {
 	color: #808080;
