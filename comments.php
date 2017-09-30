@@ -10,9 +10,9 @@ $author_field = '<div class="form-group"><div class="col-sm-6">' . '<label for="
 
 $email_field = '<div class="col-sm-6">' . '<label for="email" class="control-label">' . __('E-mail', 'dia') . '</label><input id="email" class="form-control" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30" maxlength="100" aria-describedby="email-notes"' . $aria_req . $html_req  . ' />' . '</div></div>';
 
-$sumit_button = '<div class="form-group"><div class="col-sm-12">' . '<button name="%1$s" type="submit" id="%2$s" class="%3$s btn btn-primary">'. __('Post Comment', 'dia') . '</button>' . '</div></div>';
+$sumit_button = '<div class="form-group"><div class="col-sm-12 text-center">' . '<button name="%1$s" type="submit" id="%2$s" class="%3$s btn btn-primary">'. __('Post Comment', 'dia') . '</button>' . '</div></div>';
 
-$logged_in_as = '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>';
+$logged_in_as = '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'dia'), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>';
 
 comment_form( array (
 	'class_form' => 'form-horizontal comment-form',
@@ -30,7 +30,7 @@ comment_form( array (
 <?php if ( have_comments() ) : ?>
 	<h3 class="comments-title">
 		<?php
-		printf( _nx( __('One comment', 'dia'), __('%1$s comments', 'dia'), get_comments_number(), 'comments title'),
+		printf( _nx( __('One comment', 'dia'), __('%1$s Comments', 'dia'), get_comments_number(), 'comments title'),
 			number_format_i18n( get_comments_number() ) );
 		?>
 	</h3>
