@@ -6,7 +6,7 @@
 			</div>
 			<div class="col-md-6">
 				<ul class="social-links">
-					<li>Me on the web:</li>
+					<li><?php _e('Me on the web:', 'dia') ?></li>
 					<?php wp_nav_menu( 
 					array (
 						'menu' => 'social-menu',
