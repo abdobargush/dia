@@ -1,0 +1,191 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DIA'\n"
+"POT-Creation-Date: 2017-09-27 01:28+0200\n"
+"PO-Revision-Date: 2017-09-27 01:42+0200\n"
+"Last-Translator: \n"
+"Language-Team: Abdulaziz Bargush - bargush.me\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:6
+msgid "404: Page not found."
+msgstr "404: الصفحة المطلوبة غير موجودة."
+
+#: 404.php:7
+msgid "Sorry, The page you were looking for doesn't exist 😕"
+msgstr "عذرًا ، لم نتمكن من العثور على الصفحة التي تبحث عنها 😕"
+
+#: 404.php:8
+msgid "What about going to the <a href=\"..\">Homepage</a>?"
+msgstr "ماذا عن الانتقال إلى <a href=\"..\">الصفحة الرئيسية</a> ؟"
+
+#: archive-portfolio.php:5 draft.php:91 functions.php:234 portfolio.php:6
+msgid "Portfolio"
+msgstr "معرض الأعمال"
+
+#: archive-portfolio.php:45 content.php:45
+msgid "Sorry, no posts matched your criteria."
+msgstr "عذراً، لايوجد نتائج مطابقة لبحثك.."
+
+#: comments.php:7
+msgid "Comment"
+msgstr "التعليق"
+
+#: comments.php:9 page-contact.php:67
+msgid "Name"
+msgstr "الاسم"
+
+#: comments.php:11 page-contact.php:71
+msgid "E-mail"
+msgstr "البريد الإلكتروني"
+
+#: comments.php:13
+msgid "Post Comment"
+msgstr "أرسل التعليق"
+
+#: comments.php:15
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+
+#: comments.php:33
+msgid "One comment"
+msgstr "تعليق واحد"
+
+#: comments.php:33
+#, php-format
+msgid "%1$s Comments"
+msgstr "%1$s تعليق"
+
+#: comments.php:48
+msgid "Comments are closed."
+msgstr "التعليقات مغلقة."
+
+#: content.php:12 single.php:10
+msgid "Puplished"
+msgstr "نشر في"
+
+#: content.php:14 single.php:12
+msgid "no responses"
+msgstr "لا تعليقات"
+
+#: content.php:14 single.php:12
+msgid "one response"
+msgstr "تعليق واحد"
+
+#: content.php:14 single.php:12
+msgid "% responses"
+msgstr "% تعليق"
+
+#: draft.php:9 functions.php:39
+msgid "Top Menu"
+msgstr "القائمة العلوية"
+
+#: draft.php:10 functions.php:40
+msgid "Social Links Menu"
+msgstr "قائمة الروابط الاجتماعية"
+
+#: draft.php:69 functions.php:181
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: draft.php:92
+msgid "Portfolio Item"
+msgstr ""
+
+#: draft.php:97 functions.php:240
+msgid "dashicons-format-gallery"
+msgstr ""
+
+#: footer.php:30
+msgid "Search"
+msgstr "بحث"
+
+#: footer.php:32
+msgid "What are you looking for?"
+msgstr "عن ماذا تبحث؟"
+
+#: footer.php:43
+msgid "Menu"
+msgstr "القائمة"
+
+#: functions.php:103
+msgid "DIA' Tags"
+msgstr "ضياء: وسوم"
+
+#: functions.php:104
+msgid "A list of your most used tags."
+msgstr "قائمة من الوسوم الأكثر استخداماً."
+
+#: functions.php:128
+msgid "Title:"
+msgstr "العنوان:"
+
+#: functions.php:132
+msgid "Maximum Number:"
+msgstr "الحد الأقصى:"
+
+#: functions.php:185
+msgid "Reply"
+msgstr "أضف رداً"
+
+#: functions.php:235
+msgid "Portfolio Project"
+msgstr "مشروع"
+
+#: functions.php:278
+msgid "Project Link"
+msgstr "رابط المشروع"
+
+#: page-contact.php:16
+msgid "Please supply all information."
+msgstr "جميع المعلومات مطلوبة."
+
+#: page-contact.php:17
+msgid "Email Address Invalid."
+msgstr "البرسد الإلكتروني غير صالح."
+
+#: page-contact.php:18
+msgid "Message was not sent. Try Again."
+msgstr "لم يتم الإرسال، من فضلك حاول مجدداً."
+
+#: page-contact.php:19
+msgid "Thanks! Your message has been sent."
+msgstr "شكرا لك! تم إرسال رسالتك :)"
+
+#: page-contact.php:28
+msgid "You got a message via "
+msgstr "لديك رسالة عبر"
+
+#: page-contact.php:29
+msgid "From: "
+msgstr "من:"
+
+#: page-contact.php:30
+msgid "Reply-To: "
+msgstr "الرد إلى:"
+
+#: page-contact.php:77
+msgid "Message"
+msgstr "الرسالة"
+
+#: page-contact.php:84
+msgid "Send Message"
+msgstr "إرسال"
+
+#: search.php:5
+#, php-format
+msgid "Search Results for: %s"
+msgstr "نتائج البحث عن: %s"
