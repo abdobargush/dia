@@ -74,7 +74,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<label for="message" class="control-label"><?php _e('Message') ?></label>
+								<label for="message" class="control-label"><?php _e('Message', 'dia') ?></label>
 								<textarea id="message" name="message" class="form-control" rows="8"></textarea>
 							</div>
 						</div>
