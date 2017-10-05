@@ -6,6 +6,8 @@ Author URI: http://bargush.me
 Description: Personal portfolio wordpress theme.
 Version: 1.0
 Tags: bootstrap, personal, portfolio, free, rtl-language-support, translation-ready
+License: MIT License
+Liscense URI: https://opensource.org/licenses/MIT
 */
 
 html {
@@ -108,7 +110,7 @@ button {
 	background-color: #fff;
 }
 .navbar-brand {
-	font-size: 28px;
+	font-size: 24px;
 	font-weight: 700;
 	height: 80px;
 	padding: 30px 15px;
