@@ -236,7 +236,8 @@ function create_portfolio_post() {
 			),
 			'public' => true,
 			'has_archive' => true,
-			'rewrite' => ['slug' => 'portfolio'],
+			'exclude_from_search' => true,
+			'rewrite' => array( 'with_front' => false, 'slug' => 'portfolio'),
 			'menu_icon' => 'dashicons-format-gallery',
 			'supports' => array(
 					'title',
@@ -247,14 +248,14 @@ function create_portfolio_post() {
 add_action( 'init', 'create_portfolio_post' );
 
 // portfolio archive
-add_action( 'pre_get_posts' ,'portflio_archive_get_posts', 1, 1 );
 function portflio_archive_get_posts( $query )
 {
     if ( ! is_admin() && is_post_type_archive( 'portfolio' ) && $query->is_main_query() )
     {
-        $query->set( 'posts_per_page', 9 ); //set query arg ( key, value )
+        $query->set( 'posts_per_page', 9 );
     }
 }
+add_action( 'pre_get_posts' ,'portflio_archive_get_posts', 1, 1 );
 
 // Portfolio project link Metabox
 function project_link_metabox() {
