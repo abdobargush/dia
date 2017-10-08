@@ -475,3 +475,14 @@ footer .social-links {
 	font-size: 30px;
 	font-weight: 700;
 }
+
+/*-- Wordpress styles --*/
+.alignright {
+	text-align: right;
+}
+.alignleft {
+	text-align: left;
+}
+.aligncenter {
+	text-align: center;
+}
