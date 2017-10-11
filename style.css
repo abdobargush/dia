@@ -1,11 +1,12 @@
 /*
 Theme Name: DIA'
+Theme URI: https://github.com/abdobargush/dia
 Text Domain: dia
 Author: Abdulaziz Bargush
 Author URI: http://bargush.me
 Description: Personal portfolio wordpress theme.
 Version: 1.0
-Tags: bootstrap, personal, portfolio, free, rtl-language-support, translation-ready
+Tags: portfolio, rtl-language-support, translation-ready
 License: MIT License
 License URI: https://opensource.org/licenses/MIT
 */
@@ -47,6 +48,10 @@ blockquote {
 	background-color: #fff;
 	border: 0;
 	box-shadow: 0 2px 15px 0 rgba(0,0,0,.06);
+}
+.page-header {
+	border-bottom: 0;
+	padding-bottom: 10px;
 }
 
 /*-- Buttons --*/
@@ -251,26 +256,24 @@ ul.tags-list li a:hover {
 .page-numbers {
 	display: inline-block;
     padding-left: 0;
-    margin: 20px 0;
-    border-radius: 4px;
+    margin: 20px 5px;
 }
 ul.page-numbers li {
 	display: inline;
-	margin: 0 5px;
 }
-ul.page-numbers li a {
+ul.page-numbers li a, a.page-numbers {
 	color: #808080;
 	border-bottom: 0;
 }
-ul.page-numbers li a:hover {
+ul.page-numbers li a:hover, a.page-numbers:hover {
 	color: #111;
 	border-bottom: 0;
 }
-ul.page-numbers li span.current {
+ul.page-numbers li span.current, .page-numbers.current {
 	color: #111;
 	font-weight: 700;
 }
-ul.page-numbers li a.prev, ul.page-numbers li a.next {
+ul.page-numbers li a.prev, ul.page-numbers li a.next, a.page-numbers.next, a.page-numbers.prev {
 	vertical-align: sub;
 }
 #sidebar {
@@ -310,26 +313,12 @@ ul.page-numbers li a.prev, ul.page-numbers li a.next {
 	border-radius: 50%;
 }
 
-/* #### */
-
-.page-header {
-	border-bottom: 0;
-	padding-bottom: 10px;
-}
-.hover-shadow {
-	transition: all 0.5s cubic-bezier(.25,.8,.25,1);
-}
-.hover-shadow:hover {
-	transform: translateY(-4px);
-	box-shadow: 0 0 30px 2px rgba(0,0,0,.1)
-}
-
-/* pagination */
+/*-- pagination --*/
 .pagination>li>a, .pagination>li>span {
 	border: 0;
 	padding: 6px 18px;
 	color: #6f6d6d;
-	font-family: 'Arvo', serif;;
+	font-family: 'Arvo', serif;
 }
 .pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover {
 	color: #424242;
@@ -341,7 +330,7 @@ ul.page-numbers li a.prev, ul.page-numbers li a.next {
 	font-weight: 700;
 }
 
-/* Footer */
+/*-- Footer --*/
 footer {
 	position: absolute;
 	width: 100%;
@@ -390,12 +379,12 @@ footer .social-links {
 	background-color: #111;
 }
 
-/* Portfolio */
+/*-- Portfolio --*/
 .portfolio-item {
 	margin-bottom: 30px;
 }
 
-/* Modals */
+/*-- Modals --*/
 .close-icon {
     display: block;
     height: 30px;
@@ -476,13 +465,113 @@ footer .social-links {
 	font-weight: 700;
 }
 
-/*-- Wordpress styles --*/
+/*-- 
+ * Wordpress styles 
+ * These classes are provided by wordpress by default.
+ * Maybe customized later ;)
+--*/
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
 .alignright {
-	text-align: right;
+    float:right;
+    margin: 5px 0 20px 20px;
 }
+
 .alignleft {
-	text-align: left;
+    float: left;
+    margin: 5px 20px 20px 0;
 }
-.aligncenter {
-	text-align: center;
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+        white-space: nowrap;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
 }

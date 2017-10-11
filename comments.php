@@ -36,12 +36,28 @@ comment_form( array (
 	</h3>
 	<ul class="comment-list media-list">
 		<?php 
-		wp_list_comments( array(
-			'format' => 'html5',
-			'callback' => 'dia_comments',
-		) );
+			wp_list_comments( array(
+				'format' => 'html5',
+				'callback' => 'dia_comments',
+			) );
 		?>
 	</ul>
+	
+	<?php if ( get_the_comments_navigation() ) : ?>
+		<div class="text-center">
+			<?php echo get_the_comments_pagination( 
+				array(
+					'screen_reader_text' => ' ',
+					'next_text' => '<svg id="i-arrow-right" viewBox="0 0 32 32" width="18" height="18" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+							<path d="M22 6 L30 16 22 26 M30 16 L2 16" />
+						</svg>',
+					'prev_text' => '<svg id="i-arrow-left" viewBox="0 0 32 32" width="18" height="18" fill="none" 	stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+						<path d="M10 6 L2 16 10 26 M2 16 L30 16" />
+						</svg>'
+				) ) ?>
+		</div>
+	<?php endif; ?>
+	
 <?php endif; ?>
 <?php if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) : ?>
 	<p class="no-comments">

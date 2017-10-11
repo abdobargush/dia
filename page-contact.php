@@ -19,30 +19,30 @@ $message_unsent  = __("Message was not sent. Try Again.", 'dia');
 $message_sent    = __("Thanks! Your message has been sent.", 'dia');
 
 // Sender posted vars
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
+$contact_name = $_POST['contact_name'];
+$contact_email = $_POST['contact_email'];
+$contact_message = $_POST['contact_message'];
 
 // php Mailer Vars
 $to = get_option('admin_email');
-$subject == __('You got a message via ', 'dia').get_bloginfo('name');
-$headers = __('From: ', 'dia'). $email . "\r\n" .
-    	   __('Reply-To: ', 'dia') . $email . "\r\n";
+$subject = __('You got a message via ', 'dia').get_bloginfo('name');
+$headers = __('From: ', 'dia'). $contact_email . "\r\n" .
+    	   __('Reply-To: ', 'dia') . $contact_email . "\r\n";
 
 //validate email
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	if (!filter_var($contact_email, FILTER_VALIDATE_EMAIL)) {
 		generate_response("error", $email_invalid);
 	} 
 	else //email is valid
 	{
 		//validate presence of name and message
-		if(empty($name) || empty($message)){
+		if(empty($contact_name) || empty($contact_message)){
 			generate_response("error", $missing_content);
 		}
 		else //ready to go!
 		{
-			$sent = wp_mail($to, $subject, $message, $headers);
+			$sent = wp_mail($to, $subject, $contact_message, $headers);
 			if($sent) generate_response("success", $message_sent); //message sent!
 			else generate_response("error", $message_unsent); //message wasn't sent
 		}
@@ -64,18 +64,18 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 					<form method="post" class="form-horizontal">
 						<div class="form-group">
 							<div class="col-sm-6">
-								<label for="name" class="control-label"><?php _e('Name' , 'dia') ?></label>
-								<input type="text" id="name" name="name" class="form-control">
+								<label for="contact_name" class="control-label"><?php _e('Name' , 'dia') ?></label>
+								<input type="text" id="contact_name" name="contact_name" class="form-control">
 							</div>
 							<div class="col-sm-6">
-								<label for="email" class="control-label"><?php _e('E-mail', 'dia') ?></label>
-								<input type="email" id="email" name="email" class="form-control">
+								<label for="contact_email" class="control-label"><?php _e('E-mail', 'dia') ?></label>
+								<input type="email" id="contact_email" name="contact_email" class="form-control">
 							</div>
 						</div>
 						<div class="form-group">
 							<div class="col-sm-12">
-								<label for="message" class="control-label"><?php _e('Message', 'dia') ?></label>
-								<textarea id="message" name="message" class="form-control" rows="8"></textarea>
+								<label for="contact_message" class="control-label"><?php _e('Message', 'dia') ?></label>
+								<textarea id="contact_message" name="contact_message" class="form-control" rows="8"></textarea>
 							</div>
 						</div>
 						<div class="form-group">

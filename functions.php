@@ -169,7 +169,9 @@ class dia_tags_widget extends WP_widget {
 	}
 }
 
-// Custom Comments template
+/*
+ * Custom Comments template
+ */
 function dia_comments($comment, $args, $depth) {  
 	$GLOBALS['comment'] = $comment; ?>
 	   <li id="comment-<?php comment_ID() ?>" class="comment media">

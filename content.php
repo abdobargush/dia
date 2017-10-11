@@ -1,5 +1,5 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-<div id="post-<?php the_ID(); ?>" class="blog-post">
+<div id="post-<?php the_ID(); ?>" <?php post_class('blog-post'); ?>>
 	<a href="<?php the_permalink(); ?>">
 		<?php if ( has_post_thumbnail() ) {
 			echo ('<div class="post-thumb">');
@@ -8,10 +8,12 @@
 		} ?>
 		<h3 class="post-heading"><?php the_title(); ?></h3>
 	</a>
-	<div class="row sub-info">
-		<div class="col-xs-6"><p class="text-muted small"><?php _e('Puplished', 'dia') ?> <?php echo get_the_date(); ?></p></div>
-		<div class="col-xs-6 text-right">
-			<p class="text-muted small"><a href="<?php comments_link(); ?>" class="comments-link"><?php comments_number( __('no responses', 'dia'), __('one response', 'dia'), __('% responses', 'dia') ); ?></a></p>
+	<div class="sub-info">
+		<div class="row">
+			<div class="col-xs-6"><p class="text-muted small"><?php _e('Puplished', 'dia') ?> <?php echo get_the_date(); ?></p></div>
+			<div class="col-xs-6 text-right">
+				<p class="text-muted small"><a href="<?php comments_link(); ?>" class="comments-link"><?php comments_number( __('no responses', 'dia'), __('one response', 'dia'), __('% responses', 'dia') ); ?></a></p>
+			</div>
 		</div>
 	</div>
 	<?php if ( !has_post_thumbnail() ) {

@@ -11,7 +11,7 @@
 		<nav class="navbar navbar-default navbar-static-top text-uppercase">
 			<div class="container">
 				<div class="navbar-header">
-					<a href="<?php echo get_bloginfo( 'wpurl' );?>" class="navbar-brand"><?php echo get_bloginfo( 'name' ); ?></a>
+					<a href="<?php echo esc_url( site_url() );?>" class="navbar-brand"><?php echo get_bloginfo( 'name' ); ?></a>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
 					<li>
