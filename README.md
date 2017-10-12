@@ -18,6 +18,7 @@ The portfolio is built as a custom type post. You can browse it using the path `
 
 ## PSD version
 There are also psd files for the design you it can be found here: http://goo.gl/FuzkmT
+* You can watch design showcase on Behance: https://goo.gl/RLVXxd *
 
 ## License
 DIA' is licensed unde MIT License.
