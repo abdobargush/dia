@@ -17,8 +17,8 @@ The theme has ready Arabic translation files `ar.mo` and `ar.mo`, You can transl
 The portfolio is built as a custom type post. You can browse it using the path `http://yourdomain.com/portfolio`
 
 ## PSD version
-There are also psd files for the design you it can be found here: http://goo.gl/FuzkmT
-#### **You can watch design showcase on Behance: https://goo.gl/RLVXxd**
+There are also psd files for the design you it can be found here: http://goo.gl/FuzkmT. 
+**You can watch design showcase on Behance: https://goo.gl/RLVXxd**
 
 ## License
 DIA' is licensed unde MIT License.
